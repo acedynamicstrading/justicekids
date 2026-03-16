@@ -660,17 +660,16 @@ Give a warm, simple, reassuring answer that:
 Keep it under 200 words. Be friendly, like a helpful older friend — not a lawyer. Never ask for identifying information.`;
 
   try{
-    const groqKey=localStorage.getItem('gu_groq_key')||'';
-    if(groqKey){
-      const resp=await fetch('https://api.groq.com/openai/v1/chat/completions',{
-        method:'POST',
-        headers:{'Content-Type':'application/json','Authorization':'Bearer '+groqKey},
-        body:JSON.stringify({model:'llama-3.3-70b-versatile',max_tokens:600,temperature:0.7,messages:[{role:'user',content:prompt}]})
-      });
-      if(resp.ok){
-        const data=await resp.json();
+    const resp=await fetch('https://lexlk.acedynamicstrading.workers.dev',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({action:'kidsAsk',messages:[{role:'user',content:prompt}]})
+    });
+    if(resp.ok){
+      const data=await resp.json();
+      if(data.text){
         ansEl.className='ask-answer show';
-        ansEl.textContent=data.choices[0].message.content;
+        ansEl.textContent=data.text;
         btn.disabled=false;
         return;
       }
