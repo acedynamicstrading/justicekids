@@ -53,6 +53,7 @@
   }
   .hero::before {
     content: ''; position: absolute; inset: 0;
+    pointer-events: none;
     background: radial-gradient(circle at 30% 50%, rgba(18,168,155,0.12) 0%, transparent 60%),
                 radial-gradient(circle at 70% 50%, rgba(212,168,67,0.08) 0%, transparent 60%);
   }
@@ -120,9 +121,9 @@
   }
   .cat-card:hover { border-color: var(--teal); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(18,168,155,0.12); }
   .cat-card.selected { border-color: var(--teal); background: rgba(18,168,155,0.06); }
-  .cat-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
-  .cat-title { font-weight: 700; font-size: 0.9rem; color: var(--navy); margin-bottom: 4px; }
-  .cat-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.4; }
+  .cat-icon { font-size: 2rem; margin-bottom: 10px; display: block; pointer-events: none; }
+  .cat-title { font-weight: 700; font-size: 0.9rem; color: var(--navy); margin-bottom: 4px; pointer-events: none; }
+  .cat-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.4; pointer-events: none; }
 
   /* ── TEXTAREA ── */
   .situation-box {
@@ -190,7 +191,7 @@
   .btn-outline:hover { border-color: var(--teal); color: var(--teal); }
   .btn-gold { background: var(--gold); color: var(--navy); }
   .btn-gold:hover { background: #c99a35; }
-  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; margin-bottom: 80px; }
+  .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
 
   /* ── TOKEN ── */
   .token-display {
@@ -225,15 +226,16 @@
 
   /* ── STEP PANELS ── */
   .step-panel { display: none; }
-  .step-panel.active { display: block; }
+  .step-panel.active { display: block; padding-bottom: 100px; }
 
   /* ── SAFE EXIT ── */
   .safe-exit-bar {
     position: fixed; bottom: 0; left: 0; right: 0;
     background: rgba(13,27,42,0.95); padding: 10px 20px;
     display: flex; align-items: center; justify-content: space-between;
-    z-index: 100; backdrop-filter: blur(8px);
+    z-index: 50; backdrop-filter: blur(8px);
     border-top: 2px solid var(--gold);
+    height: 56px;
   }
   .safe-exit-bar span { color: rgba(255,255,255,0.7); font-size: 0.8rem; }
   .safe-exit-btn {
@@ -659,6 +661,17 @@ function selectCat(el, cat) {
   selectedCategory = cat;
   document.getElementById('step1-next').disabled = false;
 }
+
+// Also handle via event delegation as fallback
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('cat-grid').addEventListener('click', function(e) {
+    const card = e.target.closest('.cat-card');
+    if (card) {
+      const cat = card.getAttribute('onclick').match(/'([^']+)'\)/)[1];
+      selectCat(card, cat);
+    }
+  });
+});
 
 // ── SAFETY ──
 function setSafe(val, btn) {
