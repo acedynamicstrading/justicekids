@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Minor Protection Portal — Safe Help for Children | LexLK</title>
+<title>Minor Protection Portal — Safe Help for Children | Justice LK</title>
 <meta name="description" content="A safe, confidential portal for children to get legal guidance and protection in Sri Lanka. Your identity is fully protected by client confidentiality.">
 <style>
   :root {
@@ -297,23 +297,14 @@
         <div class="auth-note">Ministry Helpline</div>
       </div>
     </div>
-    <div style="margin-top:16px;border-top:1px solid #f0d0d0;padding-top:16px;">
-      <p style="font-size:0.85rem;color:#555;margin-bottom:8px;font-weight:600;">📞 Want us to call you back or send help?</p>
-      <input type="tel" id="emergency-phone" placeholder="Your phone number (optional)" style="width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:8px;font-size:0.9rem;margin-bottom:8px;box-sizing:border-box;"/>
-      <input type="hidden" id="emergency-location" value=""/>
-      <div id="location-status" style="font-size:0.78rem;color:#555;margin-bottom:8px;padding:8px 10px;background:#f0f8ff;border-radius:6px;border:1px solid #d0e8ff;">📍 Starting live location tracking...</div>
-      <div id="location-pulse" style="display:none;font-size:0.75rem;color:green;margin-bottom:10px;">🟢 Live tracking active — your location updates every 30 seconds</div>
-      <button class="btn btn-danger" onclick="sendEmergencyAlert()" style="width:100%;margin-bottom:8px;">🆘 Send My Details to the LexLK Team Now</button>
-      <div id="emergency-sent" style="display:none;text-align:center;color:green;font-size:0.85rem;font-weight:600;margin-bottom:8px;">✓ Sent! Our team will contact you shortly.</div>
-    </div>
-    <button class="btn" onclick="closeEmergency()" style="width:100%;background:#f5f5f5;color:#333;margin-top:4px;">I understand — Continue without sharing</button>
+    <button class="btn btn-danger" onclick="closeEmergency()" style="width:100%;">I understand — Continue</button>
   </div>
 </div>
 
 <!-- TOP HEADER -->
 <header class="top-header">
-  <a href="https://acedynamicstrading.github.io/justicekids/" class="logo">
-    ⚖ <span>LexLK</span> &nbsp;|&nbsp; Safe Help
+  <a href="index.html" class="logo">
+    ⚖ <span>Justice LK</span> &nbsp;|&nbsp; Safe Help
   </a>
   <button class="emergency-btn" onclick="showEmergency()">🆘 Emergency Help</button>
   <button class="ham-btn" onclick="toggleHamMenu()"><span></span><span></span><span></span></button>
@@ -322,10 +313,10 @@
 <!-- MOBILE DRAWER -->
 <div class="ham-drawer" id="ham-drawer">
   <button class="ham-close" onclick="toggleHamMenu()">✕</button>
-  <a href="https://acedynamicstrading.github.io/Lexlk/about.html" onclick="toggleHamMenu()">🏠 Platform Home</a>
-  <a href="https://acedynamicstrading.github.io/justicekids/" onclick="toggleHamMenu()">⚖ JusticeLK CMS</a>
-  <a href="https://acedynamicstrading.github.io/justicekids/" target="_blank" onclick="toggleHamMenu()">👶 LexLK Kids</a>
-  <a href="https://acedynamicstrading.github.io/justicelk/lawyer-registration.html" target="_blank" onclick="toggleHamMenu()">👨‍⚖️ Attorney Registration</a>
+  <a href="https://acedynamicstrading.github.io/justicelk/" onclick="toggleHamMenu()">🏠 Platform Home</a>
+  <a href="index.html" onclick="toggleHamMenu()">⚖ Justice LK CMS</a>
+  <a href="kids.html" onclick="toggleHamMenu()">👶 Justice Kids</a>
+  <a href="lawyer-registration.html" onclick="toggleHamMenu()">👨‍⚖️ Attorney Registration</a>
   <button onclick="showEmergency();toggleHamMenu()" class="ham-cta" style="background:#e74c3c;">🆘 Emergency Help</button>
 </div>
 
@@ -346,82 +337,6 @@
     </div>
   </div>
 </section>
-
-<!-- SOS IMMEDIATE HELP -->
-<div id="sos-warning" style="background:#7b0000;padding:20px 24px;text-align:center;border-bottom:4px solid #ff0000;">
-  <p style="color:#fff;font-size:0.92rem;line-height:1.8;margin:0 auto 16px;max-width:600px;">
-    ⚠️ <strong>Click the SOS HELP NOW button for immediate help.</strong><br>
-    Your live location will be sent to the LexLK safety team instantly.<br>
-    <strong>Please do not close this page.</strong> Move to a secure, safe location and hide.<br>
-    Keep your phone on <strong>silent</strong> and keep it with you.<br>
-    You can move to different places — we will track your location as you move.<br>
-    <em style="color:#ffcccc;">Help is on the way. You are not alone. Be safe.</em>
-  </p>
-  <button onclick="triggerSOS()" style="
-    background:#ff0000;
-    color:#fff;
-    border:none;
-    padding:20px 40px;
-    font-size:1.3rem;
-    font-weight:900;
-    border-radius:8px;
-    cursor:pointer;
-    letter-spacing:0.06em;
-    box-shadow:0 0 30px rgba(255,0,0,0.7);
-    animation:sos-pulse 1.5s infinite;
-    width:100%;
-    max-width:400px;
-    display:block;
-    margin:0 auto;
-  ">🆘 SOS HELP NOW</button>
-  <div id="sos-sent" style="display:none;margin-top:16px;">
-    <!-- Confirmation -->
-    <div style="background:rgba(0,200,100,0.15);border:1px solid #00cc66;border-radius:8px;padding:14px 18px;margin-bottom:14px;text-align:center;">
-      <div style="color:#00ff88;font-size:1.1rem;font-weight:900;margin-bottom:6px;">✓ SOS SENT — Help is on the way!</div>
-      <div style="color:rgba(255,255,255,0.85);font-size:0.85rem;line-height:1.7;">
-        Your location is being tracked every 30 seconds.<br>
-        <strong style="color:#fff;">Stay hidden. Keep phone on silent. Do not close this page.</strong>
-      </div>
-    </div>
-
-    <!-- Emergency numbers -->
-    <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:16px;margin-bottom:14px;">
-      <div style="color:#fff;font-size:0.9rem;font-weight:700;margin-bottom:12px;">🆘 Call these numbers if you can do so safely:</div>
-      <div style="display:grid;gap:10px;">
-        <a href="tel:119" style="display:flex;align-items:center;justify-content:space-between;background:rgba(192,57,43,0.3);border:1px solid #c0392b;border-radius:8px;padding:12px 16px;text-decoration:none;">
-          <div><div style="color:#fff;font-weight:700;font-size:0.9rem;">Police Emergency</div><div style="color:rgba(255,255,255,0.6);font-size:0.75rem;">Any police station</div></div>
-          <div style="color:#ff6b6b;font-size:1.4rem;font-weight:900;">119</div>
-        </a>
-        <a href="tel:1929" style="display:flex;align-items:center;justify-content:space-between;background:rgba(192,57,43,0.3);border:1px solid #c0392b;border-radius:8px;padding:12px 16px;text-decoration:none;">
-          <div><div style="color:#fff;font-weight:700;font-size:0.9rem;">NCPA Hotline</div><div style="color:rgba(255,255,255,0.6);font-size:0.75rem;">National Child Protection Authority</div></div>
-          <div style="color:#ff6b6b;font-size:1.4rem;font-weight:900;">1929</div>
-        </a>
-        <a href="tel:1938" style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:12px 16px;text-decoration:none;">
-          <div><div style="color:#fff;font-weight:700;font-size:0.9rem;">Women &amp; Children</div><div style="color:rgba(255,255,255,0.6);font-size:0.75rem;">Ministry Helpline</div></div>
-          <div style="color:#ffcc00;font-size:1.4rem;font-weight:900;">1938</div>
-        </a>
-      </div>
-    </div>
-
-    <!-- Callback form -->
-    <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:16px;">
-      <div style="color:#fff;font-size:0.9rem;font-weight:700;margin-bottom:10px;">📞 Want us to call you back or send help?</div>
-      <input type="text" id="sos-name" placeholder="Your name (optional)" style="width:100%;padding:10px 12px;border:1px solid rgba(255,255,255,0.2);border-radius:8px;font-size:0.9rem;margin-bottom:8px;box-sizing:border-box;background:rgba(255,255,255,0.1);color:#fff;"/>
-      <input type="tel" id="sos-phone" placeholder="Your phone number (optional)" style="width:100%;padding:10px 12px;border:1px solid rgba(255,255,255,0.2);border-radius:8px;font-size:0.9rem;margin-bottom:8px;box-sizing:border-box;background:rgba(255,255,255,0.1);color:#fff;"/>
-      <div id="sos-gps-status" style="font-size:0.78rem;color:rgba(255,255,255,0.6);margin-bottom:10px;padding:8px 10px;background:rgba(255,255,255,0.05);border-radius:6px;">📍 Getting your live location...</div>
-      <button onclick="sendSOSCallback()" style="width:100%;background:#c0392b;color:#fff;border:none;padding:12px;border-radius:8px;font-size:0.9rem;font-weight:700;cursor:pointer;">🆘 Send My Details &amp; Location Now</button>
-      <div id="sos-callback-sent" style="display:none;text-align:center;color:#00ff88;font-size:0.85rem;font-weight:700;margin-top:10px;">✓ Sent! Our team will contact you shortly.</div>
-    </div>
-  </div>
-</div>
-
-<style>
-@keyframes sos-pulse {
-  0%   { box-shadow: 0 0 20px rgba(255,0,0,0.7); transform: scale(1); }
-  50%  { box-shadow: 0 0 50px rgba(255,0,0,1); transform: scale(1.03); }
-  100% { box-shadow: 0 0 20px rgba(255,0,0,0.7); transform: scale(1); }
-}
-</style>
 
 <!-- MAIN -->
 <main class="main">
@@ -639,13 +554,13 @@
       <div style="font-size:2.5rem;margin-bottom:12px;">👨‍⚖️</div>
       <div class="card-title" style="color:#fff;justify-content:center;" data-en="Want to Talk to a Real Lawyer?" data-si="සැබෑ නීතිඥයෙකු සමඟ කතා කිරීමට අවශ්‍යද?" data-ta="உண்மையான வழக்கறிஞரிடம் பேச விரும்புகிறீர்களா?">Want to Talk to a Real Lawyer?</div>
       <p style="color:rgba(255,255,255,0.85);font-size:0.95rem;margin:10px 0 22px;line-height:1.6;" data-en="LexLK offers free legal consultations for children and families in Sri Lanka. A trusted adult can book on your behalf — completely free." data-si="LexLK ශ්‍රී ලංකාවේ ළමුන් සහ පවුල් සඳහා නොමිලේ නීති උපදේශනයක් ලබා දෙයි." data-ta="LexLK இலங்கையில் குழந்தைகள் மற்றும் குடும்பங்களுக்கு இலவச சட்ட ஆலோசனை வழங்குகிறது.">LexLK offers free legal consultations for children and families in Sri Lanka. A trusted adult can book on your behalf — completely free.</p>
-      <a href="https://lexlk.com" target="_blank" style="display:inline-block;background:#D4A843;color:#0D1B2A;padding:14px 36px;border-radius:99px;font-weight:900;font-size:0.95rem;text-decoration:none;">📅 Book a Free Consultation at LexLK</a>
-      <p style="color:rgba(255,255,255,0.45);font-size:0.78rem;margin-top:12px;">lexlk.com · +94 77 362 2211</p>
+      <a href="https://acedynamicstrading.github.io/Lexlk/" target="_blank" style="display:inline-block;background:#D4A843;color:#0D1B2A;padding:14px 36px;border-radius:99px;font-weight:900;font-size:0.95rem;text-decoration:none;">📅 Book a Free Consultation at LexLK</a>
+      <p style="color:rgba(255,255,255,0.45);font-size:0.78rem;margin-top:12px;">acedynamicstrading.github.io/Lexlk · +94 77 362 2211</p>
     </div>
 
     <div class="btn-row">
       <button class="btn btn-gold" onclick="startOver()">Start a new question</button>
-      <a href="https://acedynamicstrading.github.io/justicekids/" target="_blank" class="btn btn-outline">Learn about your rights →</a>
+      <a href="kids.html" class="btn btn-outline">Justice Kids — Learn your rights →</a>
       <button class="btn btn-outline" onclick="printGuidance()">🖨 Print this guidance</button>
     </div>
   </div>
@@ -660,18 +575,19 @@
 
 <footer style="background:#0D1B2A;padding:20px 24px;text-align:center;font-size:0.82rem;color:rgba(255,255,255,0.45);">
   <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:8px;">
-    <a href="https://acedynamicstrading.github.io/Lexlk/about.html" style="color:rgba(255,255,255,0.6);text-decoration:none;">🏠 Platform Home</a>
-    <a href="https://acedynamicstrading.github.io/justicekids/" style="color:rgba(255,255,255,0.6);text-decoration:none;">JusticeLK CMS</a>
-    <a href="https://acedynamicstrading.github.io/justicekids/" target="_blank" style="color:rgba(255,255,255,0.6);text-decoration:none;">LexLK Kids</a>
-    <a href="https://acedynamicstrading.github.io/justicelk/lawyer-registration.html" target="_blank" style="color:rgba(255,255,255,0.6);text-decoration:none;">Attorney Registration</a>
+    <a href="https://acedynamicstrading.github.io/justicelk/" style="color:rgba(255,255,255,0.6);text-decoration:none;">🏠 Platform Home</a>
+    <a href="index.html" style="color:rgba(255,255,255,0.6);text-decoration:none;">Justice LK CMS</a>
+    <a href="kids.html" style="color:rgba(255,255,255,0.6);text-decoration:none;">Justice Kids</a>
+    <a href="lawyer-registration.html" style="color:rgba(255,255,255,0.6);text-decoration:none;">Attorney Registration</a>
   </div>
-  © 2026 Ace Dynamics Trading · Justice LK · Protected by client confidentiality
+  © 2026 Justice LK · National Digital Justice Access Programme · Protected by client confidentiality
 </footer>
 
 <script>
 // ── CONFIG ──
 const SHEETS_URL   = 'https://script.google.com/macros/s/AKfycbz20nAEAeocp8zd99cyGRtq6Ax2KjnNj_YxxJyLRocmP2M0S9PmoobvY4Vn61PXZ9Wi7g/exec';
 const SHEETS_SECRET = 'gamatausaviya2025';
+const GROQ_URL = 'https://api.groq.com/openai/v1/chat/completions';
 
 // State
 let currentStep = 1;
@@ -733,12 +649,7 @@ function goStep(n) {
   }
 
   currentStep = n;
-  // Scroll to step tracker, not page top
-  const tracker = document.getElementById('step-track');
-  if (tracker) {
-    const y = tracker.getBoundingClientRect().top + window.scrollY - 20;
-    window.scrollTo({ top: y, behavior: 'smooth' });
-  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // ── CATEGORY ──
@@ -852,21 +763,24 @@ Provide:
 IMPORTANT: Use ${currentLang === 'si' ? 'Sinhala' : currentLang === 'ta' ? 'Tamil' : 'English'} throughout. Write as if speaking directly to a child aged 10–17. Be warm, not scary. Keep it under 350 words. Do NOT use legal jargon. Do NOT ask for any identifying information.`;
 
   try {
-    const resp = await fetch('https://lexlk.acedynamicstrading.workers.dev', {
+    // Try Groq (requires key saved in localStorage as lexlk_groq_key)
+    const groqKey = localStorage.getItem('gu_groq_key') || '';
+    if (!groqKey) throw new Error('no key');
+    const resp = await fetch(GROQ_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + (localStorage.getItem('gu_groq_key') || '') },
       body: JSON.stringify({
-        action: 'kidsAsk',
-        messages: [{ role: 'user', content: prompt }]
+        model: 'llama-3.3-70b-versatile',
+        messages: [{ role: 'user', content: prompt }],
+        max_tokens: 600, temperature: 0.7
       })
     });
+
     if (resp.ok) {
       const data = await resp.json();
-      if (data.text) {
-        guidanceEl.className = 'ai-response';
-        guidanceEl.textContent = data.text;
-        return;
-      }
+      guidanceEl.className = 'ai-response';
+      guidanceEl.textContent = data.choices[0].message.content;
+      return;
     }
   } catch(e) {}
 
@@ -953,7 +867,7 @@ Your key rights:
 
 If any of these rights are being denied to you, the National Child Protection Authority (NCPA) and the Human Rights Commission can help.
 
-You can also learn more on the LexLK Kids page — created specially for children like you.`,
+You can also learn more on the Justice Kids platform — created specially for children like you.`,
       si: `ඉතා හොඳ ප්‍රශ්නයක්! ශ්‍රී ලංකාවේ සෑම ළමයෙකුටම UNCRC සහ ශ්‍රී ලංකා නීතිය යටතේ ආරක්ෂිත අයිතිවාසිකම් ඇත.
 
 ඔබේ ප්‍රධාන අයිතිවාසිකම්:
@@ -986,7 +900,7 @@ function buildNextSteps() {
 
   const steps = isUrgent ? [
     { icon: '📞', title: 'Call NCPA immediately', detail: 'NCPA Hotline: 1929 — free, 24 hours, confidential' },
-    { icon: '🏥', title: 'Go to a safe place', detail: "A trusted neighbour, teacher, or relative's home" },
+    { icon: '🏥', title: 'Go to a safe place', detail: 'A trusted neighbour, teacher, or relative's home' },
     { icon: '📝', title: 'Tell a trusted adult', detail: 'Show them this guidance and your reference number: ' + sessionToken },
     { icon: '⚖️', title: 'Free legal help', detail: 'Legal Aid Commission: 011 243 3618 — they can help a guardian file a case' },
   ] : [
@@ -994,7 +908,7 @@ function buildNextSteps() {
     { icon: '📝', title: 'Write down what happened', detail: 'Dates, what was said or done, any witnesses — keep it safe' },
     { icon: '📞', title: 'NCPA Helpline if needed', detail: 'Call 1929 anytime — they are trained to help children' },
     { icon: '⚖️', title: 'Ask for legal help', detail: 'The Legal Aid Commission provides free help: 011 243 3618' },
-    { icon: '📚', title: 'Learn more', detail: 'Visit LexLK Kids to learn about all your rights as a child' },
+    { icon: '📚', title: 'Learn more', detail: 'Visit Justice Kids to learn about all your rights as a child' },
   ];
 
   list.innerHTML = steps.map(s => `
@@ -1043,181 +957,13 @@ async function logConfidentialCase() {
 }
 
 // ── UTILITIES ──
-// ── LIVE LOCATION TRACKING ──
-let liveTrackWatcher = null;
-let liveTrackInterval = null;
-let lastLat = null;
-let lastLng = null;
-let emergencyTriggered = false;
-let emergencyPhone = '';
+function showEmergency() { document.getElementById('emergency-modal').classList.add('show'); }
+function closeEmergency() { document.getElementById('emergency-modal').classList.remove('show'); }
 
-function initBackgroundTracking() {
-  if (!navigator.geolocation || liveTrackWatcher !== null) return;
-  liveTrackWatcher = navigator.geolocation.watchPosition(
-    function(pos) {
-      lastLat = pos.coords.latitude.toFixed(6);
-      lastLng = pos.coords.longitude.toFixed(6);
-      const mapsUrl = 'https://maps.google.com/?q=' + lastLat + ',' + lastLng;
-      const locEl = document.getElementById('emergency-location');
-      if (locEl) locEl.value = lastLat + ',' + lastLng + ' | ' + mapsUrl;
-      const statusEl = document.getElementById('location-status');
-      if (statusEl) { statusEl.style.color = 'green'; statusEl.textContent = '✓ Live location: ' + lastLat + ', ' + lastLng; }
-      const pulseEl = document.getElementById('location-pulse');
-      if (pulseEl && emergencyTriggered) pulseEl.style.display = 'block';
-    },
-    function() {
-      const statusEl = document.getElementById('location-status');
-      if (statusEl) { statusEl.style.color = '#888'; statusEl.textContent = '📍 Could not get GPS location.'; }
-    },
-    { enableHighAccuracy: true, maximumAge: 0, timeout: 15000 }
-  );
-  // Send location update to Telegram every 30 seconds when emergency is active
-  liveTrackInterval = setInterval(function() {
-    if (lastLat && lastLng && emergencyTriggered) {
-      const mapsUrl = 'https://maps.google.com/?q=' + lastLat + ',' + lastLng;
-      fetch('https://lexlk.acedynamicstrading.workers.dev', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          action: 'emergency',
-          phone: emergencyPhone || 'Not provided',
-          location: lastLat + ',' + lastLng + ' | ' + mapsUrl,
-          token: sessionToken,
-          update: true
-        })
-      }).catch(function() {});
-    }
-  }, 30000);
+function safeExit() {
+  // Navigate to an innocuous page
+  window.location.replace('https://www.google.com/search?q=sri+lanka+weather');
 }
-
-// Start tracking silently on page load
-window.addEventListener('load', initBackgroundTracking);
-
-async function triggerSOS() {
-  const btn = document.querySelector('[onclick="triggerSOS()"]');
-  btn.textContent = '📡 Getting your location...';
-  btn.disabled = true;
-
-  // Get fresh accurate GPS reading first, then send
-  function doSend(locStr) {
-    fetch('https://lexlk.acedynamicstrading.workers.dev', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        action:   'emergency',
-        phone:    'SOS BUTTON — IMMEDIATE DANGER',
-        location: locStr,
-        token:    sessionToken,
-        sos:      true
-      })
-    }).catch(function() {});
-
-    // Update GPS status in callback form
-    const gpsEl = document.getElementById('sos-gps-status');
-    if (gpsEl) {
-      if (locStr.includes('maps.google.com')) {
-        gpsEl.style.color = '#00ff88';
-        gpsEl.textContent = '✓ Live location captured and sent to our team';
-      } else {
-        gpsEl.style.color = 'rgba(255,255,255,0.5)';
-        gpsEl.textContent = '📍 Could not get GPS location automatically';
-      }
-    }
-
-    document.getElementById('sos-sent').style.display = 'block';
-    btn.textContent = '✓ SOS SENT — Tracking Active';
-    btn.style.background = '#006600';
-    btn.style.animation = 'none';
-    emergencyTriggered = true;
-    emergencyPhone = 'SOS';
-  }
-
-  // Try to get a fresh accurate GPS fix
-  if (navigator.geolocation) {
-    btn.textContent = '📡 Getting precise location...';
-    navigator.geolocation.getCurrentPosition(
-      function(pos) {
-        lastLat = pos.coords.latitude.toFixed(6);
-        lastLng = pos.coords.longitude.toFixed(6);
-        const mapsUrl = 'https://maps.google.com/?q=' + lastLat + ',' + lastLng;
-        doSend(lastLat + ',' + lastLng + ' | ' + mapsUrl);
-      },
-      function() {
-        // GPS failed — use last known or send without
-        const locStr = lastLat && lastLng
-          ? lastLat + ',' + lastLng + ' | https://maps.google.com/?q=' + lastLat + ',' + lastLng
-          : 'GPS unavailable — SOS sent without location';
-        doSend(locStr);
-      },
-      { enableHighAccuracy: true, timeout: 8000, maximumAge: 0 }
-    );
-  } else {
-    doSend('GPS not supported on this device');
-  }
-}
-
-async function sendSOSCallback() {
-  const name  = document.getElementById('sos-name').value.trim();
-  const phone = document.getElementById('sos-phone').value.trim();
-  const loc   = (lastLat && lastLng)
-    ? lastLat + ',' + lastLng + ' | https://maps.google.com/?q=' + lastLat + ',' + lastLng
-    : 'GPS unavailable';
-
-  try {
-    await fetch('https://lexlk.acedynamicstrading.workers.dev', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        action:   'emergency',
-        phone:    (name ? name + ' — ' : '') + (phone || 'No number given'),
-        location: loc,
-        token:    sessionToken,
-        sos:      true,
-        callback: true
-      })
-    });
-  } catch(e) {}
-
-  document.getElementById('sos-callback-sent').style.display = 'block';
-  document.querySelector('[onclick="sendSOSCallback()"]').disabled = true;
-}
-
-function showEmergency() {
-  emergencyTriggered = true;
-  document.getElementById('emergency-modal').classList.add('show');
-}
-
-function closeEmergency() {
-  document.getElementById('emergency-modal').classList.remove('show');
-  // Tracking continues even after modal closes
-}
-
-async function sendEmergencyAlert() {
-  const phone = document.getElementById('emergency-phone').value.trim();
-  const location = document.getElementById('emergency-location').value.trim();
-  emergencyPhone = phone;
-  const btn = event.target;
-  btn.textContent = 'Sending...'; btn.disabled = true;
-  try {
-    await fetch('https://lexlk.acedynamicstrading.workers.dev', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        action: 'emergency',
-        phone: phone || 'Not provided',
-        location: location || 'Not provided',
-        token: sessionToken
-      })
-    });
-  } catch(e) {}
-  document.getElementById('emergency-sent').style.display = 'block';
-  const pulseEl = document.getElementById('location-pulse');
-  if (pulseEl) pulseEl.style.display = 'block';
-  btn.textContent = '✓ Sent'; btn.disabled = false;
-  setTimeout(closeEmergency, 3000);
-}
-
-function safeExit() {}
 
 function startOver() {
   selectedCategory = null; safetyStatus = null;
