@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teacher Resources — Justice Kids · Sri Lanka</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{--navy:#0D1B2A;--teal:#12A89B;--gold:#D4A843;--purple:#7C3AED;--green:#10B981;--text:#1e293b;--muted:#64748b;--border:#E2E8F0;--bg:#F8FAFF;}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);}
+.header{background:var(--navy);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.logo{color:#fff;font-size:1.1rem;font-weight:800;display:flex;align-items:center;gap:8px;text-decoration:none;}
+.logo-badge{background:var(--teal);color:#fff;padding:2px 10px;border-radius:99px;font-size:0.75rem;font-weight:900;}
+.hero{background:linear-gradient(135deg,#0d1b2a,#1a3a4a);padding:56px 24px;text-align:center;}
+.hero h1{color:#fff;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;margin-bottom:12px;}
+.hero p{color:rgba(255,255,255,0.7);font-size:0.95rem;max-width:560px;margin:0 auto;line-height:1.7;}
+.content{max-width:860px;margin:0 auto;padding:48px 24px;}
+.section{margin-bottom:40px;}
+.section h2{font-size:1.3rem;font-weight:800;color:var(--navy);margin-bottom:14px;padding-bottom:8px;border-bottom:3px solid var(--gold);}
+.section p,.section li{color:var(--muted);font-size:0.9rem;line-height:1.7;margin-bottom:8px;}
+.section ul{padding-left:20px;margin-bottom:12px;}
+.lesson-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:16px 0;}
+.lesson-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.05);}
+.lesson-card .age-badge{display:inline-block;background:rgba(18,168,155,0.1);color:var(--teal);font-size:0.68rem;font-weight:800;padding:2px 8px;border-radius:99px;margin-bottom:8px;}
+.lesson-card h3{font-size:0.92rem;font-weight:800;color:var(--navy);margin-bottom:6px;}
+.lesson-card p{font-size:0.8rem;color:var(--muted);}
+.lesson-card .duration{font-size:0.72rem;color:var(--muted);margin-top:8px;}
+.highlight{background:rgba(18,168,155,0.07);border-left:4px solid var(--teal);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0;}
+.highlight p{margin:0;color:var(--text);font-size:0.88rem;}
+.step-list{counter-reset:steps;list-style:none;padding:0;}
+.step-list li{counter-increment:steps;display:flex;gap:14px;margin-bottom:16px;align-items:flex-start;}
+.step-list li::before{content:counter(steps);background:var(--gold);color:var(--navy);font-weight:900;font-size:0.85rem;min-width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.step-list li div{font-size:0.88rem;color:var(--muted);line-height:1.6;}
+.step-list li strong{color:var(--text);}
+.rights-table{width:100%;border-collapse:collapse;font-size:0.85rem;margin:16px 0;}
+.rights-table th{background:var(--navy);color:#fff;padding:10px 14px;text-align:left;}
+.rights-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--muted);vertical-align:top;}
+.rights-table tr:nth-child(even) td{background:#f1f5f9;}
+.cta-box{background:linear-gradient(135deg,var(--navy),var(--purple));border-radius:12px;padding:32px 24px;text-align:center;margin-top:40px;}
+.cta-box h3{color:#fff;font-size:1.2rem;font-weight:800;margin-bottom:8px;}
+.cta-box p{color:rgba(255,255,255,0.7);font-size:0.88rem;margin-bottom:20px;}
+.btn{display:inline-block;text-decoration:none;padding:12px 28px;border-radius:99px;font-weight:800;font-size:0.88rem;transition:opacity 0.2s;margin:4px;}
+.btn:hover{opacity:0.85;}
+.btn-gold{background:var(--gold);color:var(--navy);}
+.btn-teal{background:var(--teal);color:#fff;}
+.footer{background:var(--navy);padding:20px 24px;text-align:center;font-size:0.72rem;color:rgba(255,255,255,0.35);}
+.footer a{color:rgba(255,255,255,0.5);text-decoration:none;margin:0 8px;}
+@media(max-width:600px){.content{padding:32px 18px;}}
+</style>
+</head>
+<body>
+<header class="header">
+  <a href="https://acedynamicstrading.github.io/justicekids/" class="logo">
+    ⚖ Justice Kids <span class="logo-badge">Teachers</span>
+  </a>
+  <div style="display:flex;gap:14px;flex-wrap:wrap;">
+    <a href="https://acedynamicstrading.github.io/justicekids/" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.83rem;">👶 Justice Kids</a>
+    <a href="https://acedynamicstrading.github.io/Lexlk/" style="color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.83rem;">⚖ LexLK</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:12px;">For Teachers & Schools</div>
+  <h1>Teach Child Rights in Your Classroom</h1>
+  <p>Free lesson plans, activities and digital tools to help you bring Sri Lankan child rights education into your school — in Sinhala, Tamil and English.</p>
+</div>
+
+<div class="content">
+
+  <div class="section">
+    <h2>Why Teach Child Rights?</h2>
+    <p>Sri Lanka has ratified the UN Convention on the Rights of the Child. Teaching children about their rights builds confidence, reduces vulnerability to abuse, and creates a generation that understands and respects the law. Justice Kids makes this easy — the platform does the explaining, you guide the discussion.</p>
+    <div class="highlight"><p><strong>No preparation needed.</strong> Open Justice Kids on a classroom screen or tablet and work through the rights cards together. The quiz handles assessment automatically. Everything is in Sinhala, Tamil and English.</p></div>
+  </div>
+
+  <div class="section">
+    <h2>Suggested Lesson Plans</h2>
+    <div class="lesson-grid">
+      <div class="lesson-card">
+        <div class="age-badge">Ages 10–12</div>
+        <h3>🏫 Lesson 1: My Rights at School</h3>
+        <p>Use the Education and Safety rights cards. Discuss caning, bullying and the Zonal Director complaint process. Take the quiz as a class.</p>
+        <div class="duration">⏱ 45 minutes · No materials needed</div>
+      </div>
+      <div class="lesson-card">
+        <div class="age-badge">Ages 12–15</div>
+        <h3>📱 Lesson 2: Online Safety & the Law</h3>
+        <p>Use the Online Safety rights card. Discuss cyberbullying and the Computer Crimes Act. Ask students to use the AI Q&A to ask their own questions.</p>
+        <div class="duration">⏱ 45 minutes · Devices helpful</div>
+      </div>
+      <div class="lesson-card">
+        <div class="age-badge">Ages 13–17</div>
+        <h3>⚖ Lesson 3: What is the Law?</h3>
+        <p>Work through the glossary together. Discuss what a Grama Niladhari does, what the Legal Aid Commission is and when a child goes to Juvenile Court.</p>
+        <div class="duration">⏱ 60 minutes · Discussion based</div>
+      </div>
+      <div class="lesson-card">
+        <div class="age-badge">All ages</div>
+        <h3>🧠 Lesson 4: Rights Quiz Challenge</h3>
+        <p>Split the class into teams. Each team uses one device to take the quiz. First team to a perfect score wins. Download the certificate for each winner.</p>
+        <div class="duration">⏱ 30 minutes · Competitive & fun</div>
+      </div>
+      <div class="lesson-card">
+        <div class="age-badge">Ages 14–17</div>
+        <h3>🗣 Lesson 5: Real Stories, Real Rights</h3>
+        <p>Read the three case stories (Ayesha, Sahan, Nimasha). Discuss: What right was violated? Who helped? What would you do? Role play the scenario.</p>
+        <div class="duration">⏱ 45 minutes · Discussion based</div>
+      </div>
+      <div class="lesson-card">
+        <div class="age-badge">Ages 10–17</div>
+        <h3>👪 Lesson 6: If Something Happens to Me</h3>
+        <p>Discuss safe adults, the NCPA helpline (1929), and the Safe Help Portal. Make sure every child knows the number 1929 before leaving class.</p>
+        <div class="duration">⏱ 30 minutes · Important for all ages</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Rights Reference — Classroom Quick Guide</h2>
+    <table class="rights-table">
+      <tr><th>Right</th><th>Key Law</th><th>Who to Contact</th></tr>
+      <tr><td><strong>Education</strong></td><td>Education Ordinance · Free until age 16</td><td>Zonal Director of Education</td></tr>
+      <tr><td><strong>Safety from Abuse</strong></td><td>Penal Code · Children & Young Persons Ordinance</td><td>NCPA: 1929 · Police: 119</td></tr>
+      <tr><td><strong>Healthcare</strong></td><td>Public Health Act · Free at all government hospitals</td><td>Nearest government hospital</td></tr>
+      <tr><td><strong>Against Child Labour</strong></td><td>Employment of Women, Young Persons & Children Act</td><td>Department of Labour</td></tr>
+      <tr><td><strong>Online Safety</strong></td><td>Computer Crimes Act</td><td>CCID: 011 232 4444</td></tr>
+      <tr><td><strong>Legal Help</strong></td><td>Legal Aid Commission Act</td><td>Legal Aid Commission: 011 243 3618</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>How to Use Justice Kids in Class</h2>
+    <ol class="step-list">
+      <li><div><strong>Open on a screen</strong> — Project <a href="https://acedynamicstrading.github.io/justicekids/" target="_blank">acedynamicstrading.github.io/justicekids</a> on your classroom projector or smart board. No login, no app needed.</div></li>
+      <li><div><strong>Select a language</strong> — Switch between English, Sinhala and Tamil at the top. You can switch mid-lesson.</div></li>
+      <li><div><strong>Work through the rights cards</strong> — Click each card to expand. Read it aloud, pause and discuss. Ask: Has anyone seen this happen? What would you do?</div></li>
+      <li><div><strong>Run the quiz</strong> — Take it as a class vote, or let students use devices individually. Show the score breakdown at the end to review wrong answers.</div></li>
+      <li><div><strong>Celebrate perfect scores</strong> — Any student who scores 6/6 can download a personalised certificate with their name on it.</div></li>
+      <li><div><strong>End with the helplines</strong> — Always close by pointing out the emergency numbers (1929, 119) at the bottom of the page.</div></li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>Reporting a Concern</h2>
+    <p>As a teacher, if a child discloses abuse or you suspect a child is in danger, you are a mandatory reporter under Sri Lankan law. Please contact:</p>
+    <ul>
+      <li><strong>NCPA Hotline: 1929</strong> — 24 hours, free, confidential</li>
+      <li><strong>Police: 119</strong> — immediate danger</li>
+      <li><strong>Women & Children Ministry: 1938</strong></li>
+      <li><strong>Department of Probation & Child Care Services</strong> — your local office</li>
+    </ul>
+    <p>If a child in your school needs free legal help for their family, direct them to <a href="https://acedynamicstrading.github.io/Lexlk/" target="_blank">LexLK</a> — free legal consultations for all Sri Lankans.</p>
+  </div>
+
+  <div class="cta-box">
+    <h3>Ready to Start?</h3>
+    <p>Open Justice Kids now — no setup, no account, no cost.</p>
+    <a href="https://acedynamicstrading.github.io/justicekids/" class="btn btn-gold">👶 Open Justice Kids</a>
+    <a href="https://acedynamicstrading.github.io/Lexlk/" class="btn btn-teal">⚖ Free Legal Help — LexLK</a>
+  </div>
+
+</div>
+
+<div class="footer">
+  <a href="https://acedynamicstrading.github.io/justicekids/">Justice Kids</a>
+  <a href="https://acedynamicstrading.github.io/Lexlk/">LexLK</a>
+  <a href="https://acedynamicstrading.github.io/justicelk/">Justice LK</a>
+  <a href="https://acedynamicstrading.github.io/justicelk/privacy-policy.html">Privacy Policy</a>
+  <br><br>© 2026 Ace Dynamics Trading — Sri Lanka · Justice LK National Digital Justice Access Programme
+</div>
+</body>
+</html>

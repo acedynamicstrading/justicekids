@@ -412,6 +412,13 @@
       <button onclick="sendSOSCallback()" style="width:100%;background:#c0392b;color:#fff;border:none;padding:12px;border-radius:8px;font-size:0.9rem;font-weight:700;cursor:pointer;">🆘 Send My Details &amp; Location Now</button>
       <div id="sos-callback-sent" style="display:none;text-align:center;color:#00ff88;font-size:0.85rem;font-weight:700;margin-top:10px;">✓ Sent! Our team will contact you shortly.</div>
     </div>
+    <!-- I AM SAFE NOW -->
+    <div style="margin-top:14px;text-align:center;">
+      <button onclick="iAmSafeNow()" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.7);padding:10px 24px;border-radius:8px;font-size:0.82rem;cursor:pointer;font-family:inherit;">
+        ✅ I am safe now — Stop tracking
+      </button>
+      <div style="color:rgba(255,255,255,0.35);font-size:0.7rem;margin-top:6px;">Only press this if you are genuinely safe</div>
+    </div>
   </div>
 </div>
 
@@ -665,7 +672,7 @@
     <a href="https://acedynamicstrading.github.io/justicekids/" target="_blank" style="color:rgba(255,255,255,0.6);text-decoration:none;">LexLK Kids</a>
     <a href="https://acedynamicstrading.github.io/justicelk/lawyer-registration.html" target="_blank" style="color:rgba(255,255,255,0.6);text-decoration:none;">Attorney Registration</a>
   </div>
-  © 2026 Ace Dynamics Trading · Justice LK · Protected by client confidentiality
+  © 2026 Ace Dynamics Trading · Justice LK · Protected by client confidentiality &nbsp;·&nbsp; <a href="https://acedynamicstrading.github.io/justicelk/privacy-policy.html" target="_blank" style="color:rgba(255,255,255,0.5);text-decoration:none;">Privacy Policy</a>
 </footer>
 
 <script>
@@ -852,14 +859,18 @@ Provide:
 IMPORTANT: Use ${currentLang === 'si' ? 'Sinhala' : currentLang === 'ta' ? 'Tamil' : 'English'} throughout. Write as if speaking directly to a child aged 10–17. Be warm, not scary. Keep it under 350 words. Do NOT use legal jargon. Do NOT ask for any identifying information.`;
 
   try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 20000);
     const resp = await fetch('https://lexlk.acedynamicstrading.workers.dev', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         action: 'kidsAsk',
         messages: [{ role: 'user', content: prompt }]
-      })
+      }),
+      signal: controller.signal
     });
+    clearTimeout(timeout);
     if (resp.ok) {
       const data = await resp.json();
       if (data.text) {
@@ -868,7 +879,14 @@ IMPORTANT: Use ${currentLang === 'si' ? 'Sinhala' : currentLang === 'ta' ? 'Tami
         return;
       }
     }
-  } catch(e) {}
+  } catch(e) {
+    if (e.name === 'AbortError') {
+      guidanceEl.className = 'ai-response';
+      guidanceEl.innerHTML = '<div style="color:#c0392b;font-weight:600;margin-bottom:8px;">⚠ It is taking too long to respond.</div><div style="font-size:0.9rem;line-height:1.7;">Please check your internet connection and tap <strong>See my guidance</strong> again. If you are in danger right now, please call <strong>1929</strong> or <strong>119</strong> immediately.</div>';
+      document.getElementById('step3-next').style.display = 'inline-block';
+      return;
+    }
+  }
 
   // Fallback: offline canned guidance
   const offlineGuidance = getOfflineGuidance(cat, currentLang);
@@ -1154,6 +1172,44 @@ async function triggerSOS() {
   } else {
     doSend('GPS not supported on this device');
   }
+}
+
+function iAmSafeNow() {
+  // Stop live tracking
+  emergencyTriggered = false;
+  emergencyPhone = '';
+  if (liveTrackWatcher !== null) {
+    navigator.geolocation.clearWatch(liveTrackWatcher);
+    liveTrackWatcher = null;
+  }
+  if (liveTrackInterval !== null) {
+    clearInterval(liveTrackInterval);
+    liveTrackInterval = null;
+  }
+  // Send safe notification to team
+  fetch('https://lexlk.acedynamicstrading.workers.dev', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      action: 'emergency',
+      phone: 'SAFE — tracking stopped',
+      location: lastLat && lastLng ? lastLat + ',' + lastLng : 'unknown',
+      token: sessionToken,
+      safe: true
+    })
+  }).catch(function(){});
+  // Update UI
+  document.getElementById('sos-sent').style.display = 'none';
+  document.getElementById('sos-warning').style.background = '#003300';
+  document.getElementById('sos-warning').style.borderBottom = '4px solid #00cc44';
+  const btn = document.querySelector('[onclick="triggerSOS()"]');
+  if (btn) {
+    btn.textContent = '✅ Safe — Tracking Stopped';
+    btn.style.background = '#006600';
+    btn.style.animation = 'none';
+    btn.disabled = true;
+  }
+  document.querySelector('[onclick="iAmSafeNow()"]').parentElement.innerHTML = '<div style="color:#00ff88;font-weight:700;font-size:0.9rem;margin-top:10px;">✅ Tracking stopped. Stay safe.</div>';
 }
 
 async function sendSOSCallback() {
