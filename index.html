@@ -585,7 +585,7 @@ const questions = {
   ]
 };
 
-let qIdx=0, qScore=0, qAnswered=false;
+let qIdx=0, qScore=0, qAnswered=false, qAnswers=[];
 
 function renderQuestion(){
   const lang=currentLang.v;
@@ -630,10 +630,10 @@ function answerQ(i){
     res.className='quiz-result qr-wrong';
   }
   document.getElementById('q-next').style.display='inline-block';
-  qAnswered=false;
 }
 
 function nextQ(){
+  qAnswered=false;
   qIdx++;
   const lang=currentLang.v;
   const qs=questions[lang]||questions.en;
@@ -687,7 +687,7 @@ function showQuizDone(){
 }
 
 function restartQuiz(){
-  qIdx=0;qScore=0;qAnswers=[];
+  qIdx=0;qScore=0;qAnswers=[];qAnswered=false;
   document.getElementById('quiz-main').style.display='block';
   document.getElementById('quiz-done').style.display='none';
   renderQuestion();
